@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>Magic Design Efecto | Servicios</title>
-    <meta name="description" content="Agencia de marketing digital y desarrollo tecnológico B2B.">
-    <meta property="og:image" content="https://github.com/magicdesignefecto/Gestion-de-Redes-Sociales/blob/main/logo%20magic%20design%20efecto%20meta%20datos.png?raw=true">
+    <title>Magic Design Efecto | Infraestructura de Marketing y Revenue B2B</title>
     
+    <meta name="description" content="Diseñamos ecosistemas digitales altamente rentables que generan demanda, automatizan ventas y producen crecimiento predecible 24/7 para empresas B2B.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Magic Design Efecto | Infraestructura de Marketing y Revenue B2B">
+    <meta property="og:description" content="Diseñamos ecosistemas digitales altamente rentables que generan demanda, automatizan ventas y producen crecimiento predecible 24/7 para empresas B2B.">
+    <meta property="og:image" content="https://github.com/magicdesignefecto/Gestion-de-Redes-Sociales/blob/main/logo%20magic%20design%20efecto%20meta%20datos.png?raw=true">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Magic Design Efecto">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Magic Design Efecto | Infraestructura B2B">
+    <meta name="twitter:description" content="Diseñamos ecosistemas digitales altamente rentables que generan demanda y automatizan ventas.">
+    <meta name="twitter:image" content="https://github.com/magicdesignefecto/Gestion-de-Redes-Sociales/blob/main/logo%20magic%20design%20efecto%20meta%20datos.png?raw=true">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -414,7 +427,7 @@
             box-shadow: 0 0 20px rgba(94, 129, 172, 0.3);
             position: relative;
             animation: slideUp 0.3s ease;
-            text-align: center; /* Centrar todo en el modal por defecto */
+            text-align: center;
         }
         @keyframes slideUp {
             from { transform: translateY(50px); opacity: 0; }
@@ -472,7 +485,7 @@
         }
         .btn-whatsapp:hover { background: #20bd5a; }
 
-        /* --- ESTILOS ESPECÍFICOS DEL MODAL DE GUARDAR --- */
+        /* --- ESTILOS MODAL DE GUARDAR --- */
         .save-logo {
             width: 100px;
             margin-bottom: 10px;
@@ -500,7 +513,7 @@
             transition: background 0.3s;
         }
         .btn-copy:active { transform: scale(0.95); }
-        .btn-copy.copied { background: #A3BE8C; } /* Verde éxito */
+        .btn-copy.copied { background: #A3BE8C; }
 
         .copyright-text {
             text-align: center;
@@ -510,7 +523,6 @@
             opacity: 0.6;
             margin-bottom: 80px; 
         }
-
     </style>
 </head>
 <body>
@@ -705,23 +717,19 @@
 
         // --- GESTIÓN DE MODALES ---
         
-        // Abrir Modal de WhatsApp (Formulario)
         function openWhatsAppModal(serviceName = null) {
             document.getElementById('whatsappModal').classList.add('open');
             if (serviceName) serviceSelect.value = serviceName;
             else serviceSelect.value = "";
         }
 
-        // Abrir Modal de Guardar (Nuevo)
         function openSaveModal() {
             document.getElementById('saveModal').classList.add('open');
-            // Resetear estado del botón copiar
             const btn = document.getElementById('btnCopy');
             btn.innerHTML = '<i class="fa-regular fa-copy"></i> COPIAR NÚMERO';
             btn.classList.remove('copied');
         }
 
-        // Cerrar cualquier modal
         function closeModal(modalId) { 
             document.getElementById(modalId).classList.remove('open'); 
         }
@@ -747,9 +755,10 @@ Hola Magic Design, me gustaría un diagnóstico.
 
             const encodedMessage = encodeURIComponent(message);
             
-            // ⚠️⚠️ TU NÚMERO ⚠️⚠️
+            // TU NÚMERO
             const agencyPhone = "63212806"; 
             
+            // Añadimos código de país por defecto (591 Bolivia)
             window.open(`https://wa.me/591${agencyPhone}?text=${encodedMessage}`, '_blank');
             closeModal('whatsappModal');
         }
@@ -760,11 +769,8 @@ Hola Magic Design, me gustaría un diagnóstico.
                 const btn = document.getElementById('btnCopy');
                 btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡COPIADO!';
                 btn.classList.add('copied');
-                
-                // Cerrar automáticamente después de 1.5 segs (opcional)
-                // setTimeout(() => closeModal('saveModal'), 1500);
             }).catch(err => {
-                alert("Error al copiar, hazlo manualmente: " + number);
+                alert("Error al copiar. Tu número es: " + number);
             });
         }
 
