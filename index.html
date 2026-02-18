@@ -4,21 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>MAGIC DESIGN EFECTO | AGENCIA DE MARKETING DIGITAL B2B</title>
-    <meta name="description" content="Somos tu socio estratégico para atraer leads a tu empresa. Agencia especializada en crecimiento predecible y tecnología.">
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="MAGIC DESIGN EFECTO | AGENCIA DE MARKETING DIGITAL B2B">
-    <meta property="og:description" content="Somos tu socio estratégico para atraer leads a tu empresa.">
+    <title>Magic Design Efecto | Servicios</title>
+    <meta name="description" content="Agencia de marketing digital y desarrollo tecnológico B2B.">
     <meta property="og:image" content="https://github.com/magicdesignefecto/Gestion-de-Redes-Sociales/blob/main/logo%20magic%20design%20efecto%20meta%20datos.png?raw=true">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
     
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MAGIC DESIGN EFECTO | AGENCIA DE MARKETING DIGITAL B2B">
-    <meta name="twitter:description" content="Somos tu socio estratégico para atraer leads a tu empresa.">
-    <meta name="twitter:image" content="https://github.com/magicdesignefecto/Gestion-de-Redes-Sociales/blob/main/logo%20magic%20design%20efecto%20meta%20datos.png?raw=true">
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -338,7 +327,6 @@
         }
 
         .button-pro .svg-icon { width: 20px; fill: #fff; }
-
         .button-pro:active { transform: scale(0.98); border-color: var(--neon); }
         .button-pro:hover .button__text { color: var(--neon); }
         .button-pro:hover .button__icon { width: 100%; background-color: var(--primary); }
@@ -400,7 +388,7 @@
         .footer-action i { font-size: 1.5rem; margin-bottom: 4px; }
         .footer-divider { width: 1px; height: 30px; background-color: rgba(0,0,0,0.2); }
 
-        /* --- MODAL POPUP --- */
+        /* --- MODAL POPUP GENÉRICO --- */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -426,6 +414,7 @@
             box-shadow: 0 0 20px rgba(94, 129, 172, 0.3);
             position: relative;
             animation: slideUp 0.3s ease;
+            text-align: center; /* Centrar todo en el modal por defecto */
         }
         @keyframes slideUp {
             from { transform: translateY(50px); opacity: 0; }
@@ -450,7 +439,8 @@
             text-align: center;
         }
 
-        .form-group { margin-bottom: 15px; }
+        /* Formulario WhatsApp */
+        .form-group { margin-bottom: 15px; text-align: left; }
         .form-label { display: block; color: var(--text-sec); font-size: 0.85rem; margin-bottom: 5px; }
         .form-input, .form-select {
             width: 100%;
@@ -481,6 +471,36 @@
             gap: 10px;
         }
         .btn-whatsapp:hover { background: #20bd5a; }
+
+        /* --- ESTILOS ESPECÍFICOS DEL MODAL DE GUARDAR --- */
+        .save-logo {
+            width: 100px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 10px rgba(94, 129, 172, 0.5));
+        }
+        .save-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin: 15px 0;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+        }
+        .btn-copy {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+        .btn-copy:active { transform: scale(0.95); }
+        .btn-copy.copied { background: #A3BE8C; } /* Verde éxito */
 
         .copyright-text {
             text-align: center;
@@ -524,7 +544,7 @@
 
             <div class="cta-container">
                 <p style="font-size: 0.85rem; margin-bottom: 10px;">📅 Revisión gratuita de 30 minutos</p>
-                <button class="btn-primary" onclick="openModal()">QUIERO MI REVISIÓN</button>
+                <button class="btn-primary" onclick="openWhatsAppModal()">QUIERO MI REVISIÓN</button>
             </div>
         </section>
 
@@ -562,7 +582,7 @@
     </div>
 
     <div class="sticky-footer">
-        <button class="footer-action" onclick="downloadVCard()">
+        <button class="footer-action" onclick="openSaveModal()">
             <i class="fa-solid fa-user-plus"></i> GUARDAR
         </button>
         <div class="footer-divider"></div>
@@ -573,7 +593,7 @@
 
     <div class="modal-overlay" id="whatsappModal">
         <div class="modal-card">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <button class="modal-close" onclick="closeModal('whatsappModal')">&times;</button>
             <h3 class="modal-title">Hablemos de mi negocio</h3>
             
             <div class="form-group">
@@ -599,6 +619,23 @@
 
             <button class="btn-whatsapp" onclick="sendWhatsapp()">
                 <i class="fa-brands fa-whatsapp"></i> GENERAR CONSULTA
+            </button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="saveModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal('saveModal')">&times;</button>
+            
+            <img src="https://raw.githubusercontent.com/magicdesignefecto/Gestion-de-Redes-Sociales/1f7db2be0c4d2839f2328cbad3e4c8d4a390b98e/logo%20svg%20magic%20design%20efecto.svg" alt="Logo" class="save-logo">
+            
+            <h3 class="modal-title" style="margin-bottom: 5px;">Magic Design Efecto</h3>
+            <p style="font-size: 0.8rem; color: var(--text-sec);">Agencia de Marketing & Tecnología</p>
+            
+            <div class="save-number">63212806</div>
+            
+            <button class="btn-copy" id="btnCopy" onclick="copyNumber()">
+                <i class="fa-regular fa-copy"></i> COPIAR NÚMERO
             </button>
         </div>
     </div>
@@ -638,7 +675,7 @@
                         <div class="card-title">${service.title}</div>
                         <div class="card-desc">${service.desc}</div>
                         <div class="action">
-                            <button type="button" class="button-pro" onclick="openModal('${service.title}')">
+                            <button type="button" class="button-pro" onclick="openWhatsAppModal('${service.title}')">
                                 <span class="button__text">Busco este servicio</span>
                                 <span class="button__icon">
                                     <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="white"/></svg>
@@ -666,15 +703,30 @@
         function nextSlide() { currentSlideIndex = (currentSlideIndex + 1) % services.length; showSlide(currentSlideIndex); }
         function prevSlide() { currentSlideIndex = (currentSlideIndex - 1 + services.length) % services.length; showSlide(currentSlideIndex); }
 
-        const modal = document.getElementById('whatsappModal');
+        // --- GESTIÓN DE MODALES ---
         
-        function openModal(serviceName = null) {
-            modal.classList.add('open');
+        // Abrir Modal de WhatsApp (Formulario)
+        function openWhatsAppModal(serviceName = null) {
+            document.getElementById('whatsappModal').classList.add('open');
             if (serviceName) serviceSelect.value = serviceName;
             else serviceSelect.value = "";
         }
 
-        function closeModal() { modal.classList.remove('open'); }
+        // Abrir Modal de Guardar (Nuevo)
+        function openSaveModal() {
+            document.getElementById('saveModal').classList.add('open');
+            // Resetear estado del botón copiar
+            const btn = document.getElementById('btnCopy');
+            btn.innerHTML = '<i class="fa-regular fa-copy"></i> COPIAR NÚMERO';
+            btn.classList.remove('copied');
+        }
+
+        // Cerrar cualquier modal
+        function closeModal(modalId) { 
+            document.getElementById(modalId).classList.remove('open'); 
+        }
+
+        // --- FUNCIONES DE ACCIÓN ---
 
         function sendWhatsapp() {
             const name = document.getElementById('inputName').value;
@@ -695,34 +747,30 @@ Hola Magic Design, me gustaría un diagnóstico.
 
             const encodedMessage = encodeURIComponent(message);
             
-            // ⚠️⚠️⚠️ ¡CAMBIA ESTO POR TU NÚMERO REAL! ⚠️⚠️⚠️
-            const agencyPhone = "591XXXXXXXX"; 
+            // ⚠️⚠️ TU NÚMERO ⚠️⚠️
+            const agencyPhone = "63212806"; 
             
-            window.open(`https://wa.me/${agencyPhone}?text=${encodedMessage}`, '_blank');
-            closeModal();
+            window.open(`https://wa.me/591${agencyPhone}?text=${encodedMessage}`, '_blank');
+            closeModal('whatsappModal');
+        }
+
+        function copyNumber() {
+            const number = "63212806";
+            navigator.clipboard.writeText(number).then(() => {
+                const btn = document.getElementById('btnCopy');
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡COPIADO!';
+                btn.classList.add('copied');
+                
+                // Cerrar automáticamente después de 1.5 segs (opcional)
+                // setTimeout(() => closeModal('saveModal'), 1500);
+            }).catch(err => {
+                alert("Error al copiar, hazlo manualmente: " + number);
+            });
         }
 
         async function sharePage() {
             if (navigator.share) try { await navigator.share({ title: 'Magic Design Efecto', url: window.location.href }); } catch (err) {}
             else { navigator.clipboard.writeText(window.location.href); alert("Link copiado"); }
-        }
-
-        function downloadVCard() {
-            const vCardData = `BEGIN:VCARD
-VERSION:3.0
-FN:Magic Design Efecto
-ORG:Agencia de Marketing y Tecnología
-TEL;TYPE=WORK,VOICE:+59100000000
-URL:https://bio.link/magicdesignefecto
-EMAIL:contacto@magicdesignefecto.com
-END:VCARD`;
-            const blob = new Blob([vCardData], { type: "text/vcard" });
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = "MagicDesignEfecto.vcf";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
         }
 
         init();
