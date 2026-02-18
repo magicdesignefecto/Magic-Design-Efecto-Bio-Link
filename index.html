@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Servicios | Magic Design Efecto</title>
+    
+    <meta property="og:image" content="https://github.com/magicdesignefecto/Gestion-de-Redes-Sociales/blob/main/logo%20magic%20design%20efecto%20meta%20datos.png?raw=true">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES Y RESET --- */
+        :root {
+            --bg-color: #050511; 
+            --card-bg: #121225;
+            --primary: #5E81AC; 
+            --accent: #81A1C1;  
+            --neon: #88C0D0;    
+            --text-main: #ECEFF4;
+            --text-sec: #D8DEE9;
+            --footer-bg: #BFDBFE; 
+            
+            /* Variables Tarjeta */
+            --card-ui-bg: #181825;
+            --card-ui-primary: #5E81AC;
+            --card-ui-shadow: #2E3440;
+            --card-ui-light: #ECEFF4;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        .mobile-wrapper {
+            max-width: 480px; 
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            padding-bottom: 100px; 
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        /* --- BOTÓN VOLVER FIJO --- */
+        .fixed-back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .fixed-back-btn:active { transform: scale(0.9); }
+
+        /* --- HEADER --- */
+        .header {
+            text-align: center;
+            position: relative;
+            padding-top: 20px;
+            overflow: hidden;
+        }
+        
+        .logo-main {
+            width: 130px; 
+            height: auto;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 10;
+            filter: drop-shadow(0 0 15px rgba(0,0,0,0.8));
+        }
+
+        /* Imagen Hero IA */
+        .hero-ai-container {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            margin-top: -80px; 
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+
+        .hero-ai-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            opacity: 0.8;
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        }
+
+        .glow-effect {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background: var(--primary);
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        /* --- SECCIONES --- */
+        .content-section {
+            padding: 0 24px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: var(--text-main);
+            margin-top: -20px; 
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-sec);
+            margin-bottom: 15px;
+        }
+
+        /* Stats Card */
+        .stats-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+        }
+        .stat-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+        .stat-icon { color: #A3BE8C; margin-right: 10px; margin-top: 4px; }
+
+        /* CTA General */
+        .cta-container { text-align: center; margin: 30px 0; }
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--card-bg));
+            border: 1px solid var(--accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(94, 129, 172, 0.4);
+            transition: transform 0.2s;
+            width: 100%;
+            text-align: center;
+        }
+        .btn-primary:active { transform: scale(0.98); }
+
+        /* --- CARRUSEL Y TARJETAS --- */
+        .carousel-wrapper {
+            position: relative;
+            background: transparent;
+            min-height: 480px; /* Aumentado un poco para el texto nuevo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible;
+            perspective: 1000px;
+        }
+
+        .service-slide {
+            display: none; 
+            width: 100%;
+            animation: fadeIn 0.5s ease;
+        }
+        .service-slide.active { display: flex; justify-content: center; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card CSS */
+        .card-pro {
+            --bg-linear: linear-gradient(0deg, var(--card-ui-primary) 50%, var(--card-ui-light) 125%);
+            
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 1.5rem; 
+            width: 100%;     
+            max-width: 320px;
+            background-color: var(--card-ui-bg);
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .image_container {
+            overflow: hidden;
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            height: 10rem; 
+            background-color: #0f0f1a;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, rgba(94, 129, 172, 0.3) 0%, rgba(5, 5, 17, 1) 70%);
+        }
+
+        .image_container i {
+            font-size: 4rem;
+            color: var(--neon);
+            filter: drop-shadow(0 0 10px var(--primary));
+            z-index: 2;
+        }
+        
+        .card-title {
+            width: 100%;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--card-ui-light);
+            text-transform: capitalize;
+            margin-top: 5px;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #b0b5c1;
+            line-height: 1.4;
+            min-height: 80px; /* Aumentado para las descripciones nuevas */
+        }
+
+        /* Botón animado Uiverse */
+        .action {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .button-pro {
+            position: relative;
+            width: 100%;
+            height: 45px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--primary);
+            background-color: rgba(94, 129, 172, 0.2);
+            overflow: hidden;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .button-pro .button__text {
+            transform: translateX(15px);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            width: 80%;
+            text-align: left;
+            transition: all 0.3s;
+        }
+
+        .button-pro .button__icon {
+            position: absolute;
+            right: 0;
+            height: 100%;
+            width: 45px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .button-pro .svg-icon {
+            width: 20px;
+            fill: #fff;
+        }
+
+        .button-pro:active {
+            transform: scale(0.98);
+            border-color: var(--neon);
+        }
+
+        .button-pro:hover .button__text {
+            color: var(--neon);
+        }
+        
+        .button-pro:hover .button__icon {
+            width: 100%;
+            background-color: var(--primary);
+        }
+        
+        /* Controles Carrusel */
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            padding: 0 20px;
+        }
+        .arrow-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- FOOTER STICKY --- */
+        .sticky-footer {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--footer-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            z-index: 999;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+        }
+        .footer-action {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: black;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 5px;
+        }
+        .footer-action i { font-size: 1.5rem; margin-bottom: 4px; }
+        .footer-divider { width: 1px; height: 30px; background-color: rgba(0,0,0,0.2); }
+
+        /* --- MODAL POPUP --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.open { display: flex; }
+
+        .modal-card {
+            background: #1a1a2e;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 20px rgba(94, 129, 172, 0.3);
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #fff;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-title {
+            color: var(--neon);
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group { margin-bottom: 15px; }
+        .form-label { display: block; color: var(--text-sec); font-size: 0.85rem; margin-bottom: 5px; }
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #0f0f1a;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+        .form-select { appearance: none; } 
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-whatsapp:hover { background: #20bd5a; }
+
+    </style>
+</head>
+<body>
+
+    <a href="https://bio.link/magicdesignefecto" class="fixed-back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+    </a>
+
+    <div class="mobile-wrapper">
+        
+        <header class="header">
+            <div class="glow-effect"></div>
+            <img src="https://raw.githubusercontent.com/magicdesignefecto/Gestion-de-Redes-Sociales/1f7db2be0c4d2839f2328cbad3e4c8d4a390b98e/logo%20svg%20magic%20design%20efecto.svg" alt="Logo" class="logo-main">
+            <div class="hero-ai-container">
+                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=1000&auto=format&fit=crop" alt="IA Technology" class="hero-ai-img">
+            </div>
+        </header>
+
+        <section class="content-section">
+            <h1 style="display:none;">Magic Design Efecto</h1>
+            <p class="intro-text">
+                Somos una agencia de marketing digital y desarrollo tecnológico para empresas que necesitan <strong>crecimiento predecible</strong>, no experimentos.
+            </p>
+            
+            <div class="stats-card">
+                <h2>Resultados Reales (2025-2026)</h2>
+                <div class="stat-item"><i class="fa-solid fa-check-circle stat-icon"></i><span><strong>+127%</strong> más consultas calificadas en 6 meses.</span></div>
+                <div class="stat-item"><i class="fa-solid fa-chart-line stat-icon"></i><span>ROI: <strong>$1 = $4.20</strong> en oportunidades (promedio real).</span></div>
+                <div class="stat-item"><i class="fa-solid fa-robot stat-icon"></i><span>Sistema: <strong>340 leads</strong> calificados en 3 meses.</span></div>
+            </div>
+
+            <div class="cta-container">
+                <p style="font-size: 0.85rem; margin-bottom: 10px;">📅 Revisión gratuita de 30 minutos</p>
+                <button class="btn-primary" onclick="openModal()">QUIERO MI REVISIÓN</button>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 style="text-align: center; color: var(--text-main);">Qué hacemos por tu empresa</h2>
+            <p style="text-align: center; font-size: 0.8rem; opacity: 0.7;">Utiliza las flechas para explorar</p>
+            
+            <div class="carousel-wrapper" id="servicesCarousel">
+                </div>
+
+            <div class="carousel-controls">
+                <button class="arrow-btn" onclick="prevSlide()"><i class="fa-solid fa-arrow-left"></i></button>
+                <span id="slideIndicator" class="slide-indicator" style="color:var(--text-sec);">1 / 11</span>
+                <button class="arrow-btn" onclick="nextSlide()"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </section>
+
+        <section class="content-section" style="margin-bottom: 80px;">
+            <h2>Por qué las empresas nos eligen</h2>
+            <p>No solo hacemos publicidad, construimos el sistema completo de captación:</p>
+            <blockquote style="border-left: 3px solid var(--neon); padding-left: 15px; margin: 15px 0; color: white; font-style: italic;">
+                "Desde que un prospecto te descubre en internet → hasta que llega calificado a tu equipo comercial."
+            </blockquote>
+        </section>
+
+    </div>
+
+    <div class="sticky-footer">
+        <button class="footer-action" onclick="downloadVCard()">
+            <i class="fa-solid fa-user-plus"></i> GUARDAR
+        </button>
+        <div class="footer-divider"></div>
+        <button class="footer-action" onclick="sharePage()">
+            <i class="fa-solid fa-share-nodes"></i> COMPARTIR
+        </button>
+    </div>
+
+    <div class="modal-overlay" id="whatsappModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3 class="modal-title">Hablemos de mi negocio</h3>
+            
+            <div class="form-group">
+                <label class="form-label">👤 Nombre</label>
+                <input type="text" id="inputName" class="form-input" placeholder="Ej: Juan Pérez">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">🏢 Negocio</label>
+                <input type="text" id="inputBusiness" class="form-input" placeholder="Ej: Clínica Dental Elite">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">📱 Mi WhatsApp</label>
+                <input type="tel" id="inputPhone" class="form-input" placeholder="Ej: +591 77777777">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">🧠 Obtener diagnóstico ejecutivo</label>
+                <select id="inputService" class="form-select">
+                    </select>
+            </div>
+
+            <button class="btn-whatsapp" onclick="sendWhatsapp()">
+                <i class="fa-brands fa-whatsapp"></i> GENERAR CONSULTA
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // DATOS ACTUALIZADOS (11 SERVICIOS)
+        const services = [
+            { icon: "fa-magnifying-glass", title: "🔎 SEO Estratégico", desc: "Hacemos que tu empresa aparezca en Google cuando tus potenciales clientes buscan lo que tú ofreces." },
+            { icon: "fa-rocket", title: "🚀 Publicidad Digital (SEM / Ads)", desc: "Creamos campañas pagadas para atraer personas interesadas en tus servicios y convertirlas en oportunidades de negocio (leads)." },
+            { icon: "fa-pen-nib", title: "✍️ Marketing de Contenidos", desc: "Desarrollamos contenido que educa, genera confianza y posiciona tu empresa como autoridad en su sector." },
+            { icon: "fa-users", title: "📱 Gestión Estratégica de Redes", desc: "Administramos tus redes con enfoque estratégico para atraer audiencia calificada y generar contactos interesados." },
+            { icon: "fa-envelope-open-text", title: "📩 Email Marketing & Automatización", desc: "Implementamos sistemas de seguimiento automático para nutrir prospectos y mantener comunicación constante sin trabajo manual." },
+            { icon: "fa-globe", title: "🌐 Diseño Web Orientado a Conversión", desc: "Diseñamos páginas optimizadas para captar datos de contacto y transformar visitas en oportunidades comerciales." },
+            { icon: "fa-laptop-code", title: "💻 Desarrollo de Software y Apps Web", desc: "Creamos herramientas digitales a medida que optimizan procesos internos y mejoran la experiencia del usuario." },
+            { icon: "fa-chart-pie", title: "📊 Analítica e Inteligencia de Datos", desc: "Medimos resultados con datos reales para optimizar campañas y tomar decisiones estratégicas con claridad." },
+            { icon: "fa-gem", title: "🎨 Branding Estratégico", desc: "Construimos una identidad sólida que proyecta profesionalismo, coherencia y posicionamiento diferencial." },
+            { icon: "fa-gears", title: "⚙️ Automatización & Sistemas", desc: "Diseñamos procesos digitales que reducen tareas repetitivas y aumentan la eficiencia operativa." },
+            { icon: "fa-graduation-cap", title: "🎓 Consultoría y Formación Ejecutiva", desc: "Asesoramos a directivos y equipos para estructurar sistemas de marketing y generación de demanda sostenibles." }
+        ];
+
+        let currentSlideIndex = 0;
+        const carouselContainer = document.getElementById('servicesCarousel');
+        const indicator = document.getElementById('slideIndicator');
+        const serviceSelect = document.getElementById('inputService');
+
+        // INICIALIZAR
+        function init() {
+            // 1. Agregar OPCIÓN NEUTRA POR DEFECTO
+            serviceSelect.innerHTML = '<option value="" disabled selected>👇 Selecciona el servicio aquí...</option>';
+
+            // 2. Llenar Carrusel y Select
+            services.forEach((service, index) => {
+                const slide = document.createElement('div');
+                slide.className = `service-slide ${index === 0 ? 'active' : ''}`;
+                
+                slide.innerHTML = `
+                    <div class="card-pro">
+                        <div class="image_container">
+                            <i class="fa-solid ${service.icon}"></i>
+                        </div>
+                        <div class="card-title">${service.title}</div>
+                        <div class="card-desc">${service.desc}</div>
+                        <div class="action">
+                            <button type="button" class="button-pro" onclick="openModal('${service.title}')">
+                                <span class="button__text">Busco este servicio</span>
+                                <span class="button__icon">
+                                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="white"/></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                carouselContainer.appendChild(slide);
+
+                // Agregar opciones al select
+                const option = document.createElement('option');
+                option.value = service.title;
+                option.text = service.title;
+                serviceSelect.appendChild(option);
+            });
+            
+            // Actualizar indicador inicial
+            indicator.textContent = `1 / ${services.length}`;
+        }
+
+        // CONTROL CARRUSEL
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.service-slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            indicator.textContent = `${index + 1} / ${services.length}`;
+        }
+        function nextSlide() { currentSlideIndex = (currentSlideIndex + 1) % services.length; showSlide(currentSlideIndex); }
+        function prevSlide() { currentSlideIndex = (currentSlideIndex - 1 + services.length) % services.length; showSlide(currentSlideIndex); }
+
+        // MODAL LOGIC
+        const modal = document.getElementById('whatsappModal');
+        
+        function openModal(serviceName = null) {
+            modal.classList.add('open');
+            if (serviceName) {
+                // Si viene de una tarjeta específica, selecciona ese servicio
+                serviceSelect.value = serviceName;
+            } else {
+                // Si viene del botón general, reinicia a la opción vacía
+                serviceSelect.value = "";
+            }
+        }
+
+        function closeModal() {
+            modal.classList.remove('open');
+        }
+
+        // ENVIAR WHATSAPP
+        function sendWhatsapp() {
+            const name = document.getElementById('inputName').value;
+            const business = document.getElementById('inputBusiness').value;
+            const clientPhone = document.getElementById('inputPhone').value;
+            const service = document.getElementById('inputService').value;
+
+            if(!name) { alert("Por favor escribe tu nombre"); return; }
+            if(!service) { alert("Por favor selecciona un servicio"); return; }
+
+            const message = `Hablemos de mi negocio
+
+Hola Magic Design, me gustaría un diagnóstico.
+
+👤 Nombre: ${name}
+🏢 Negocio: ${business}
+📱 Mi WhatsApp: ${clientPhone}
+🧠 Obtener diagnóstico ejecutivo: ${service}`;
+
+            const encodedMessage = encodeURIComponent(message);
+            
+            // ⚠️⚠️⚠️ ¡CAMBIA ESTO POR TU NÚMERO REAL! ⚠️⚠️⚠️
+            // Ejemplo: si eres de Bolivia: "59170012345"
+            const agencyPhone = "591XXXXXXXX"; 
+            
+            window.open(`https://wa.me/${agencyPhone}?text=${encodedMessage}`, '_blank');
+            closeModal();
+        }
+
+        // FOOTER ACTIONS
+        async function sharePage() {
+            if (navigator.share) {
+                try { await navigator.share({ title: 'Magic Design Efecto', url: window.location.href }); } catch (err) {}
+            } else { navigator.clipboard.writeText(window.location.href); alert("Link copiado"); }
+        }
+
+        function downloadVCard() {
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Magic Design Efecto
+ORG:Agencia de Marketing y Tecnología
+TEL;TYPE=WORK,VOICE:+59100000000
+URL:https://bio.link/magicdesignefecto
+EMAIL:contacto@magicdesignefecto.com
+END:VCARD`;
+            const blob = new Blob([vCardData], { type: "text/vcard" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "MagicDesignEfecto.vcf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        init();
+    </script>
+</body>
+</html>
