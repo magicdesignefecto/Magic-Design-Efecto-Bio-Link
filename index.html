@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Servicios | Magic Design Efecto</title>
     
+    <title>MAGIC DESIGN EFECTO | AGENCIA DE MARKETING DIGITAL B2B</title>
+    <meta name="description" content="Somos tu socio estratégico para atraer leads a tu empresa. Agencia especializada en crecimiento predecible y tecnología.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MAGIC DESIGN EFECTO | AGENCIA DE MARKETING DIGITAL B2B">
+    <meta property="og:description" content="Somos tu socio estratégico para atraer leads a tu empresa.">
     <meta property="og:image" content="https://github.com/magicdesignefecto/Gestion-de-Redes-Sociales/blob/main/logo%20magic%20design%20efecto%20meta%20datos.png?raw=true">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MAGIC DESIGN EFECTO | AGENCIA DE MARKETING DIGITAL B2B">
+    <meta name="twitter:description" content="Somos tu socio estratégico para atraer leads a tu empresa.">
+    <meta name="twitter:image" content="https://github.com/magicdesignefecto/Gestion-de-Redes-Sociales/blob/main/logo%20magic%20design%20efecto%20meta%20datos.png?raw=true">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -195,7 +207,7 @@
         .carousel-wrapper {
             position: relative;
             background: transparent;
-            min-height: 480px; /* Aumentado un poco para el texto nuevo */
+            min-height: 500px; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -237,7 +249,7 @@
             position: relative;
             z-index: 5;
             width: 100%;
-            height: 10rem; 
+            height: 9rem; 
             background-color: #0f0f1a;
             border-radius: 0.5rem;
             display: flex;
@@ -247,35 +259,45 @@
         }
 
         .image_container i {
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: var(--neon);
             filter: drop-shadow(0 0 10px var(--primary));
             z-index: 2;
         }
         
+        /* ESTILO TÍTULO */
         .card-title {
             width: 100%;
-            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3.6rem; 
+            margin: 10px 0 5px 0;
+            font-size: 1.1rem; 
             font-weight: 700;
             color: var(--card-ui-light);
-            text-transform: capitalize;
-            margin-top: 5px;
+            text-transform: none; 
             font-family: 'Poppins', sans-serif;
             line-height: 1.3;
+            text-align: center;
         }
 
         .card-desc {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #b0b5c1;
-            line-height: 1.4;
-            min-height: 80px; /* Aumentado para las descripciones nuevas */
+            line-height: 1.5;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
         }
 
         /* Botón animado Uiverse */
         .action {
             display: flex;
             align-items: center;
-            margin-top: 10px;
+            margin-top: auto; 
         }
 
         .button-pro {
@@ -315,31 +337,18 @@
             transition: all 0.3s;
         }
 
-        .button-pro .svg-icon {
-            width: 20px;
-            fill: #fff;
-        }
+        .button-pro .svg-icon { width: 20px; fill: #fff; }
 
-        .button-pro:active {
-            transform: scale(0.98);
-            border-color: var(--neon);
-        }
-
-        .button-pro:hover .button__text {
-            color: var(--neon);
-        }
-        
-        .button-pro:hover .button__icon {
-            width: 100%;
-            background-color: var(--primary);
-        }
+        .button-pro:active { transform: scale(0.98); border-color: var(--neon); }
+        .button-pro:hover .button__text { color: var(--neon); }
+        .button-pro:hover .button__icon { width: 100%; background-color: var(--primary); }
         
         /* Controles Carrusel */
         .carousel-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 5px;
+            margin-top: 10px;
             padding: 0 20px;
         }
         .arrow-btn {
@@ -473,6 +482,15 @@
         }
         .btn-whatsapp:hover { background: #20bd5a; }
 
+        .copyright-text {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-sec);
+            font-size: 0.7rem;
+            opacity: 0.6;
+            margin-bottom: 80px; 
+        }
+
     </style>
 </head>
 <body>
@@ -524,13 +542,22 @@
             </div>
         </section>
 
-        <section class="content-section" style="margin-bottom: 80px;">
-            <h2>Por qué las empresas nos eligen</h2>
+        <section class="content-section">
+            <h2>Por qué empresas nos eligen</h2>
             <p>No solo hacemos publicidad, construimos el sistema completo de captación:</p>
+            
             <blockquote style="border-left: 3px solid var(--neon); padding-left: 15px; margin: 15px 0; color: white; font-style: italic;">
                 "Desde que un prospecto te descubre en internet → hasta que llega calificado a tu equipo comercial."
             </blockquote>
+            
+            <p style="margin-top: 20px;">
+                La mayoría de agencias solo trae tráfico o "me gusta". Nosotros entregamos contactos reales de personas interesadas en lo que ofreces.
+            </p>
         </section>
+
+        <div class="copyright-text">
+            © 2026 Magic Design Efecto. Todos los derechos reservados.
+        </div>
 
     </div>
 
@@ -577,19 +604,18 @@
     </div>
 
     <script>
-        // DATOS ACTUALIZADOS (11 SERVICIOS)
         const services = [
             { icon: "fa-magnifying-glass", title: "🔎 SEO Estratégico", desc: "Hacemos que tu empresa aparezca en Google cuando tus potenciales clientes buscan lo que tú ofreces." },
-            { icon: "fa-rocket", title: "🚀 Publicidad Digital (SEM / Ads)", desc: "Creamos campañas pagadas para atraer personas interesadas en tus servicios y convertirlas en oportunidades de negocio (leads)." },
+            { icon: "fa-rocket", title: "🚀 Publicidad Digital (SEM / Ads)", desc: "Creamos campañas pagadas para atraer personas interesadas en tus servicios y convertirlas en oportunidades de negocio." },
             { icon: "fa-pen-nib", title: "✍️ Marketing de Contenidos", desc: "Desarrollamos contenido que educa, genera confianza y posiciona tu empresa como autoridad en su sector." },
             { icon: "fa-users", title: "📱 Gestión Estratégica de Redes", desc: "Administramos tus redes con enfoque estratégico para atraer audiencia calificada y generar contactos interesados." },
-            { icon: "fa-envelope-open-text", title: "📩 Email Marketing & Automatización", desc: "Implementamos sistemas de seguimiento automático para nutrir prospectos y mantener comunicación constante sin trabajo manual." },
-            { icon: "fa-globe", title: "🌐 Diseño Web Orientado a Conversión", desc: "Diseñamos páginas optimizadas para captar datos de contacto y transformar visitas en oportunidades comerciales." },
-            { icon: "fa-laptop-code", title: "💻 Desarrollo de Software y Apps Web", desc: "Creamos herramientas digitales a medida que optimizan procesos internos y mejoran la experiencia del usuario." },
+            { icon: "fa-envelope-open-text", title: "📩 Email Marketing & Automatización", desc: "Implementamos sistemas de seguimiento automático para nutrir prospectos y mantener comunicación constante." },
+            { icon: "fa-globe", title: "🌐 Diseño Web Conversión", desc: "Diseñamos páginas optimizadas para captar datos de contacto y transformar visitas en oportunidades comerciales." },
+            { icon: "fa-laptop-code", title: "💻 Desarrollo Software y Apps", desc: "Creamos herramientas digitales a medida que optimizan procesos internos y mejoran la experiencia del usuario." },
             { icon: "fa-chart-pie", title: "📊 Analítica e Inteligencia de Datos", desc: "Medimos resultados con datos reales para optimizar campañas y tomar decisiones estratégicas con claridad." },
             { icon: "fa-gem", title: "🎨 Branding Estratégico", desc: "Construimos una identidad sólida que proyecta profesionalismo, coherencia y posicionamiento diferencial." },
             { icon: "fa-gears", title: "⚙️ Automatización & Sistemas", desc: "Diseñamos procesos digitales que reducen tareas repetitivas y aumentan la eficiencia operativa." },
-            { icon: "fa-graduation-cap", title: "🎓 Consultoría y Formación Ejecutiva", desc: "Asesoramos a directivos y equipos para estructurar sistemas de marketing y generación de demanda sostenibles." }
+            { icon: "fa-graduation-cap", title: "🎓 Consultoría y Formación", desc: "Asesoramos a directivos y equipos para estructurar sistemas de marketing y generación de demanda sostenibles." }
         ];
 
         let currentSlideIndex = 0;
@@ -597,12 +623,9 @@
         const indicator = document.getElementById('slideIndicator');
         const serviceSelect = document.getElementById('inputService');
 
-        // INICIALIZAR
         function init() {
-            // 1. Agregar OPCIÓN NEUTRA POR DEFECTO
             serviceSelect.innerHTML = '<option value="" disabled selected>👇 Selecciona el servicio aquí...</option>';
 
-            // 2. Llenar Carrusel y Select
             services.forEach((service, index) => {
                 const slide = document.createElement('div');
                 slide.className = `service-slide ${index === 0 ? 'active' : ''}`;
@@ -626,18 +649,14 @@
                 `;
                 carouselContainer.appendChild(slide);
 
-                // Agregar opciones al select
                 const option = document.createElement('option');
                 option.value = service.title;
                 option.text = service.title;
                 serviceSelect.appendChild(option);
             });
-            
-            // Actualizar indicador inicial
             indicator.textContent = `1 / ${services.length}`;
         }
 
-        // CONTROL CARRUSEL
         function showSlide(index) {
             const slides = document.querySelectorAll('.service-slide');
             slides.forEach(slide => slide.classList.remove('active'));
@@ -647,33 +666,23 @@
         function nextSlide() { currentSlideIndex = (currentSlideIndex + 1) % services.length; showSlide(currentSlideIndex); }
         function prevSlide() { currentSlideIndex = (currentSlideIndex - 1 + services.length) % services.length; showSlide(currentSlideIndex); }
 
-        // MODAL LOGIC
         const modal = document.getElementById('whatsappModal');
         
         function openModal(serviceName = null) {
             modal.classList.add('open');
-            if (serviceName) {
-                // Si viene de una tarjeta específica, selecciona ese servicio
-                serviceSelect.value = serviceName;
-            } else {
-                // Si viene del botón general, reinicia a la opción vacía
-                serviceSelect.value = "";
-            }
+            if (serviceName) serviceSelect.value = serviceName;
+            else serviceSelect.value = "";
         }
 
-        function closeModal() {
-            modal.classList.remove('open');
-        }
+        function closeModal() { modal.classList.remove('open'); }
 
-        // ENVIAR WHATSAPP
         function sendWhatsapp() {
             const name = document.getElementById('inputName').value;
             const business = document.getElementById('inputBusiness').value;
             const clientPhone = document.getElementById('inputPhone').value;
             const service = document.getElementById('inputService').value;
 
-            if(!name) { alert("Por favor escribe tu nombre"); return; }
-            if(!service) { alert("Por favor selecciona un servicio"); return; }
+            if(!name || !service) { alert("Completa tu nombre y servicio"); return; }
 
             const message = `Hablemos de mi negocio
 
@@ -687,18 +696,15 @@ Hola Magic Design, me gustaría un diagnóstico.
             const encodedMessage = encodeURIComponent(message);
             
             // ⚠️⚠️⚠️ ¡CAMBIA ESTO POR TU NÚMERO REAL! ⚠️⚠️⚠️
-            // Ejemplo: si eres de Bolivia: "59170012345"
             const agencyPhone = "591XXXXXXXX"; 
             
             window.open(`https://wa.me/${agencyPhone}?text=${encodedMessage}`, '_blank');
             closeModal();
         }
 
-        // FOOTER ACTIONS
         async function sharePage() {
-            if (navigator.share) {
-                try { await navigator.share({ title: 'Magic Design Efecto', url: window.location.href }); } catch (err) {}
-            } else { navigator.clipboard.writeText(window.location.href); alert("Link copiado"); }
+            if (navigator.share) try { await navigator.share({ title: 'Magic Design Efecto', url: window.location.href }); } catch (err) {}
+            else { navigator.clipboard.writeText(window.location.href); alert("Link copiado"); }
         }
 
         function downloadVCard() {
